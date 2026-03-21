@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snakeflex"
+version = "0.1.0"
+description = "Flexbox and CSS Grid-inspired layout utilities for tkinter and customtkinter"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "SnakePlayer contributors" }]
+keywords = ["tkinter", "customtkinter", "layout", "flexbox", "css-grid", "gui"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Homepage   = "https://github.com/toomeydev/snakeflex"
+Repository = "https://github.com/toomeydev/snakeflex"
+Issues     = "https://github.com/toomeydev/snakeflex/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+snakeflex = ["py.typed"]

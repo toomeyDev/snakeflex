@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Flexbox and CSS Grid-inspired layout utilities for tkinter and customtkinter"
 readme = "README.md"
 license = { text = "MIT" }
-authors = [{ name = "SnakePlayer contributors" }]
+authors = [{ name = "Matthew Toomey", email = "mtoomeydev@gmail.com" }]
 keywords = ["tkinter", "customtkinter", "layout", "flexbox", "css-grid", "gui"]
 classifiers = [
     "Development Status :: 3 - Alpha",

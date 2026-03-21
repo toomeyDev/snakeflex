@@ -74,7 +74,7 @@ row.add(mute_btn)
 
 Returns the widget for chaining.
 
-<hr>>
+<hr>
 
 ## GridFrame
 

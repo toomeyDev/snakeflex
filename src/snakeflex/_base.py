@@ -25,13 +25,15 @@ def _resolve_bg(parent: tk.Widget, fg_color: Optional[str]) -> Optional[str]:
     if fg_color != "transparent":
         return fg_color
     # Walk up looking for a concrete colour.
+    # Use the low-level Tk call (bypasses CTk's cget() Python override, which
+    # raises ValueError for "bg" on CTkFrame / CTkBaseClass widgets).
     node = parent
     while node is not None:
         try:
-            bg = node.cget("bg")
+            bg = str(node.tk.call(str(node), "cget", "-background"))
             if bg and bg != "transparent":
                 return bg
-        except tk.TclError:
+        except Exception:
             pass
         node = getattr(node, "master", None)
     return None      # give up; Tk will use its default

@@ -6,10 +6,10 @@ Template syntax
 ---------------
 Column and row sizes are specified as space-separated track definitions::
 
-    "200px 1fr 2fr"      → fixed 200 px | 1 part | 2 parts of remaining space
-    "1fr 1fr 1fr"        → three equal columns
-    "auto 1fr"           → one content-sized column, one that fills the rest
-    "48px 1fr 28px"      → fixed header, flexible content, fixed footer
+    "200px 1fr 2fr" - fixed 200 px | 1 part | 2 parts of remaining space
+    "1fr 1fr 1fr"   - three equal columns
+    "auto 1fr"      - one content-sized column, one that fills the rest
+    "48px 1fr 28px" - fixed header, flexible content, fixed footer
 
 Supported track tokens
 ----------------------
@@ -47,7 +47,7 @@ from typing import Callable, Dict, List, Optional, Tuple
 from ._base import _FlexBase
 
 
-# ── Track parser ──────────────────────────────────────────────────────────────
+#  Track parser 
 
 @dataclass
 class _Track:
@@ -75,7 +75,7 @@ def _parse_template(template: str) -> List[_Track]:
     return tracks
 
 
-# ── Child placement info ──────────────────────────────────────────────────────
+# Child placement info 
 
 @dataclass
 class _CellInfo:
@@ -87,10 +87,10 @@ class _CellInfo:
     sticky:  str = "nsew"
 
 
-# ── GridFrame ─────────────────────────────────────────────────────────────────
+# GridFrame 
 
 class GridFrame(_FlexBase):
-    """A frame whose children are placed in a CSS Grid-like layout.
+    """A frame whose children are placed within a CSS Grid-like layout.
 
     Parameters
     ----------

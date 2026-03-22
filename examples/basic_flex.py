@@ -11,7 +11,7 @@ root.geometry("640x400")
 root.configure(bg="#1e1e2e")
 
 
-# ── Top bar ────────────────────────────────────────────────────────────────────
+# Top bar 
 bar = FlexRow(root, justify="space-between", align="center", gap=8, bg="#181825")
 bar.pack(fill="x", padx=0, pady=0)
 
@@ -24,12 +24,12 @@ bar.add(tk.Button(bar, text="✕", bg="#181825", fg="#f38ba8",
                    relief="flat", padx=8, command=root.quit))
 
 
-# ── Main layout ───────────────────────────────────────────────────────────────
+# Main layout 
 body = FlexRow(root, align="stretch", gap=0, bg="#1e1e2e")
 body.pack(fill="both", expand=True)
 
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
+# Sidebar 
 sidebar = FlexCol(body, align="stretch", gap=4, bg="#181825", width=180)
 sidebar.pack_propagate(False)
 body.add(sidebar)
@@ -42,7 +42,7 @@ for label in ("Library", "Artists", "Albums", "Playlists", "Queue"):
 sidebar.add(Spacer(sidebar))     # pushes nav items up
 
 
-# ── Content ───────────────────────────────────────────────────────────────────
+# Content 
 content = FlexCol(body, align="stretch", gap=0, bg="#1e1e2e")
 body.add(content, grow=1)
 
@@ -66,7 +66,7 @@ for i in range(1, 16):
 content.add(track_list, grow=1)
 
 
-# ── Player bar ────────────────────────────────────────────────────────────────
+#  Player bar 
 player = FlexRow(root, justify="space-between", align="center",
                   gap=12, bg="#181825")
 player.pack(fill="x")

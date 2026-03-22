@@ -214,13 +214,21 @@ class FlexFrame(_FlexBase):
                            padx=0, pady=(half_before, half_after))
 
             if slot is None:
-                # Phantom spacer slot
+                # Distinguish gap slots (fixed-size) from justify-content spacers
+                # (elastic).
+                #
+                # Between-item slots are gap slots when:
+                #   • has_grow=True  → all phantom slots come from "elif gap>0"
+                #   • has_grow=False + justify not in space-*/between → same
+                # Between-item slots are justify spacers when:
+                #   • has_grow=False + justify in (space-between/around/evenly)
+                # Leading / trailing slots are always justify spacers.
+                _space_justifies = ("space-between", "space-around", "space-evenly")
                 is_gap_slot = (
                     self._gap > 0
-                    and not has_grow
-                    and self._justify == "start"
-                    and slot_idx > 0
-                    and slot_idx < len(slots) - 1
+                    and slot_idx > 0                          # not leading
+                    and slot_idx < len(slots) - 1             # not trailing
+                    and (has_grow or self._justify not in _space_justifies)
                 )
                 if is_gap_slot:
                     # Fixed-size gap column, no weight

@@ -33,6 +33,9 @@ from .flex       import FlexFrame, FlexRow, FlexCol
 from .grid_frame import GridFrame
 from .spacer     import Spacer
 from .responsive import ResponsiveMixin
+from ._base      import _FlexBase
+
+update_tree = _FlexBase.update_tree
 
 __all__ = [
     "FlexFrame",
@@ -41,8 +44,9 @@ __all__ = [
     "GridFrame",
     "Spacer",
     "ResponsiveMixin",
+    "update_tree",
 ]
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __author__  = "SnakePlayer contributors"
 __license__ = "MIT"
